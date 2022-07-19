@@ -7,17 +7,16 @@ trendingBtn.addEventListener('click', () => {
 });
 
 arrowBtn.addEventListener('click', () => {
-  history.back()
+  history.back();
   // location.hash = '#home';
 });
-
 
 window.addEventListener('DOMContentLoaded', navigator, false);
 window.addEventListener('hashchange', navigator, false);
 
 function navigator() {
   console.log({ location });
-
+  
   if (location.hash.startsWith('#trends')) {
     trendsPage();
   } else if (location.hash.startsWith('#search=')) {
@@ -49,9 +48,9 @@ function homePage() {
   categoriesPreviewSection.classList.remove('inactive');
   genericSection.classList.add('inactive');
   movieDetailSection.classList.add('inactive');
-
+  
   getTrendingMoviesPreview();
-  getCategoriesPreview();
+  getCategegoriesPreview();
 }
 
 function categoriesPage() {
@@ -75,7 +74,7 @@ function categoriesPage() {
   const [categoryId, categoryName] = categoryData.split('-');
 
   headerCategoryTitle.innerHTML = categoryName;
-
+  
   getMoviesByCategory(categoryId);
 }
 
@@ -116,7 +115,7 @@ function searchPage() {
   genericSection.classList.remove('inactive');
   movieDetailSection.classList.add('inactive');
 
-  // ['#search', 'buscado']
+  // ['#search', 'platzi']
   const [_, query] = location.hash.split('=');
   getMoviesBySearch(query);
 }

@@ -37,7 +37,7 @@ function createMovies(movies, container) {
 function createCategories(categories, container) {
   container.innerHTML = "";
 
-  categories.forEach(category => {
+  categories.forEach(category => {  
     const categoryContainer = document.createElement('div');
     categoryContainer.classList.add('category-container');
 
@@ -60,12 +60,12 @@ function createCategories(categories, container) {
 async function getTrendingMoviesPreview() {
   const { data } = await api('trending/movie/day');
   const movies = data.results;
-  console.log(movies);
+  console.log(movies)
 
   createMovies(movies, trendingMoviesPreviewList);
 }
 
-async function getCategoriesPreview() {
+async function getCategegoriesPreview() {
   const { data } = await api('genre/movie/list');
   const categories = data.genres;
 
@@ -100,20 +100,21 @@ async function getTrendingMovies() {
 
   createMovies(movies, genericSection);
 }
+
 async function getMovieById(id) {
   const { data: movie } = await api('movie/' + id);
 
-  const movieImgUrl = 'https://image.tmdb.org/t/p/w300' + movie.poster_path;
-  console.log(movieImgUrl);
-
+  const movieImgUrl = 'https://image.tmdb.org/t/p/w500' + movie.poster_path;
+  console.log(movieImgUrl)
   headerSection.style.background = `
     linear-gradient(
       180deg,
       rgba(0, 0, 0, 0.35) 19.27%,
       rgba(0, 0, 0, 0) 29.17%
     ),
-  url(${movieImgUrl})`;
-
+    url(${movieImgUrl})
+  `;
+  
   movieDetailTitle.textContent = movie.title;
   movieDetailDescription.textContent = movie.overview;
   movieDetailScore.textContent = movie.vote_average;

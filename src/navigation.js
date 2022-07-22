@@ -23,7 +23,7 @@ function navigator() {
   console.log({ location });
 
   if (infiniteScroll) {
-    window.removeEventListener('scroll', infiniteScroll, {passive: false});
+    window.removeEventListener('scroll', infiniteScroll, { passive: false });
     infiniteScroll = undefined;
   }
 
@@ -43,7 +43,7 @@ function navigator() {
   document.documentElement.scrollTop = 0;
 
   if (infiniteScroll) {
-    window.addEventListener('scroll', infiniteScroll, {passive: false});
+    window.addEventListener('scroll', infiniteScroll, { passive: false });
   }
 }
 
@@ -62,7 +62,7 @@ function homePage() {
   categoriesPreviewSection.classList.remove('inactive');
   genericSection.classList.add('inactive');
   movieDetailSection.classList.add('inactive');
-  
+
   getTrendingMoviesPreview();
   getCategegoriesPreview();
 }
@@ -88,8 +88,10 @@ function categoriesPage() {
   const [categoryId, categoryName] = categoryData.split('-');
 
   headerCategoryTitle.innerHTML = categoryName;
-  
+
   getMoviesByCategory(categoryId);
+
+  infiniteScroll = getPaginatedMoviesByCategory(categoryId);
 }
 
 function movieDetailsPage() {
@@ -132,6 +134,8 @@ function searchPage() {
   // ['#search', 'platzi']
   const [_, query] = location.hash.split('=');
   getMoviesBySearch(query);
+
+  infiniteScroll = getPaginatedMoviesBySearch(query);
 }
 
 function trendsPage() {
@@ -156,4 +160,3 @@ function trendsPage() {
 
   infiniteScroll = getPaginatedTrendingMovies;
 }
-

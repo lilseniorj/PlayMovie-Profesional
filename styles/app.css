@@ -196,7 +196,7 @@ button {
 
 .header-container--categoryView {
   background: linear-gradient(180deg, rgba(238, 204, 117, 0.5) 0%, rgba(238, 204, 117, 0) 72.92%);
-} 
+}
 
 .header-title {
   margin-bottom: 16px;
@@ -415,7 +415,7 @@ button {
   min-height: 187.5px;
   max-height: 187.5px;
 }
-  
+
 
 /* Footer */
 footer {

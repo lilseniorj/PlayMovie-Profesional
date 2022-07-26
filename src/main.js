@@ -27,6 +27,8 @@ function likeMovie(movie) {
   // movie.id
   const likedMovies = likedMoviesList();
 
+  console.log(likedMovies)
+
   if (likedMovies[movie.id]) {
     likedMovies[movie.id] = undefined;
   } else {
@@ -83,6 +85,7 @@ function createMovies(
 
     const movieBtn = document.createElement('button');
     movieBtn.classList.add('movie-btn');
+    likedMoviesList()[movie.id] && movieBtn.classList.add('movie-btn--liked');
     movieBtn.addEventListener('click', () => {
       movieBtn.classList.toggle('movie-btn--liked');
       likeMovie(movie);
@@ -129,7 +132,7 @@ async function getTrendingMoviesPreview() {
   createMovies(movies, trendingMoviesPreviewList, true);
 }
 
-async function getCategegoriesPreview() {
+async function getCategoriesPreview() {
   const { data } = await api('genre/movie/list');
   const categories = data.genres;
 
@@ -284,4 +287,13 @@ async function getRelatedMoviesId(id) {
   const relatedMovies = data.results;
 
   createMovies(relatedMovies, relatedMoviesContainer);
+}
+
+function getLikeMovies() {
+  const likedMovies = likedMoviesList();
+  const moviesArray = Object.values(likedMovies);
+
+  createMovies(moviesArray, likedMoviesListArticle, { lazyLoad: true, clean: true, });
+
+  console.log(likedMovies)
 }

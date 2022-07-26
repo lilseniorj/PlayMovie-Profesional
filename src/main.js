@@ -293,7 +293,13 @@ function getLikeMovies() {
   const likedMovies = likedMoviesList();
   const moviesArray = Object.values(likedMovies);
 
-  createMovies(moviesArray, likedMoviesListArticle, { lazyLoad: true, clean: true, });
+  likedMoviesListArticle.innerHTML = '';
+
+  !moviesArray.length && likedMoviesSection.classList.add('inactive');
+
+  createMovies(moviesArray, likedMoviesListArticle);
+
+  // createMovies(moviesArray, likedMoviesListArticle, { lazyLoad: true, clean: true, });
 
   console.log(likedMovies)
 }

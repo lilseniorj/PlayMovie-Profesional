@@ -10,32 +10,91 @@ const api = axios.create({
   },
 });
 
+let lang = navigator.languages[1];
+
+const countries = [
+  {
+    name: "usa",
+    language: "en-US",
+    flag: '🇺🇸',
+  },
+  {
+    name: 'spain',
+    language: 'es-ES',
+    flag: '🇪🇸',
+  },
+  {
+    name: "brazil",
+    language: "pt-BR",
+    flag: '🇧🇷',
+  },
+  {
+    name: "france",
+    language: "fr-FR",
+    flag: '🇫🇷',
+  },
+  {
+    name: "italia",
+    language: "it-IT",
+    flag: '🇮🇹',
+  },
+  {
+    name: "germany",
+    language: "de-DE",
+    flag: '🇩🇪',
+  },
+  {
+    name: "russia",
+    language: "ru-RU",
+    flag: '🇷🇺',
+  },
+  {
+    name: "china",
+    language: "zh-CN",
+    flag: '🇨🇳',
+  },
+]
+
+function getLanguages() {
+  countries.forEach((country) => {
+    const languageOption = document.createElement('option');
+    languageOption.setAttribute('value', country.language );
+    languageOption.setAttribute('for', 'language');
+    const languageText = document.createTextNode(country.flag);
+    languageOption.appendChild(languageText);
+    languageOptions.appendChild(languageOption);
+  });
+}
+getLanguages();
+
+languageOptions.addEventListener("change", (event) => {
+  lang = event.target.value;
+  homePage();
+});
+
+
 function likedMoviesList() {
-  const item = JSON.parse(localStorage.getItem('liked_movies'));
-
+  const item = JSON.parse(localStorage.getItem("liked_movies"));
   let movies;
-
   if (item) {
     movies = item;
-  } else{
+  } else {
     movies = {};
   }
   return movies;
 }
 
 function likeMovie(movie) {
-  // movie.id
   const likedMovies = likedMoviesList();
-
-  console.log(likedMovies)
-
   if (likedMovies[movie.id]) {
     likedMovies[movie.id] = undefined;
   } else {
     likedMovies[movie.id] = movie;
   }
-
-  localStorage.setItem('liked_movies', JSON.stringify(likedMovies));
+  localStorage.setItem("liked_movies", JSON.stringify(likedMovies));
+  if (location.hash == "") {
+    homePage();
+  }
 }
 
 
@@ -302,4 +361,16 @@ function getLikeMovies() {
   // createMovies(moviesArray, likedMoviesListArticle, { lazyLoad: true, clean: true, });
 
   console.log(likedMovies)
+}
+
+async function createFavoritesMovies() {
+  likedMovies.innerHTML = "";
+  favoriteMoviesTitle.innerText = "";
+  const moviesList = likedMoviesList();
+  let movies = Object.values(moviesList);
+  if (movies.length > 0) {
+    const langWords = await getWords();
+    favoriteMoviesTitle.innerHTML = langWords["Favorite Movies"];
+  }
+  createImgList(movies, likedMovies, { lazyLoad: true });
 }

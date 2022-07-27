@@ -15,8 +15,17 @@
 <body>
   <header id="header" class="header-container">
     <span class="header-arrow inactive">&lt;</span>
-    <h1 class="header-title">PlayMovies</h1>
-    <h1 class="header-title header-title--categoryView inactive">Acción</h1>
+    <div class="flexbox">
+      <h1 class="header-title">PlayMovies</h1>
+      <h1 class="header-title header-title--categoryView inactive">Acción</h1>
+
+      <div id="langSection">
+        <label for="languageform">Language:</label>
+        <select name="language" id="language" form="languageform">
+          <option></option>
+        </select>
+      </div>
+    </div>
 
     <form id="searchForm" class="header-searchForm">
       <input type="text" placeholder="Vengadores" />
@@ -129,7 +138,7 @@
     </article>
   </section>
 
-  <footer>Hecho por @LilSeniorj</footer>
+  <footer>@LilSeniorj • All rights reserved ©2022.</footer>
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="./src/secrets.js"></script>

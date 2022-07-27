@@ -39,6 +39,11 @@ body {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
+
 h1, h2, h3 {
   margin: 0;
   padding: 0;
@@ -85,6 +90,11 @@ button {
   font-weight: var(--font-weight-text2);
   font-size: 14px;
   cursor: pointer;
+}
+
+.flexbox {
+  display: flex;
+  justify-content: space-between;
 }
 
 
@@ -234,6 +244,15 @@ button {
   border-bottom-right-radius: 8px;
 }
 
+/* Languages */
+
+#langSection select {
+  margin-top: 5px;
+  font-size: 16px;
+  border: none;
+  background-color: var(--purple-light-2);
+  color: var(--red-dark-2);
+}
 
 /* Trending */
 .trendingPreview-header,

@@ -106,7 +106,7 @@ dist
 # Visual Estudio Code
 .VsCode
 
-# Secrets.js (API-KEY)
-src/secrets.js
+# # Secrets.js (API-KEY)
+# src/secrets.js
 
 # Seniorj

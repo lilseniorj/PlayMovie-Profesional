@@ -18,25 +18,18 @@
     <div class="flexbox">
       <h1 class="header-title">PlayMovies</h1>
       <h1 class="header-title header-title--categoryView inactive">Acción</h1>
-
-      <div id="langSection">
-        <label for="languageform">Language:</label>
-        <select name="language" id="language" form="languageform">
-          <option></option>
-        </select>
-      </div>
     </div>
 
     <form id="searchForm" class="header-searchForm">
-      <input type="text" placeholder="Vengadores" />
+      <input type="text" placeholder="Avengers" />
       <button id="searchBtn">🔍</button>
     </form>
   </header>
 
   <section id="trendingPreview" class="trendingPreview-container">
     <div class="trendingPreview-header">
-      <h2 class="trendingPreview-title">Tendencias</h2>
-      <button class="trendingPreview-btn">Ver más</button>
+      <h2 class="trendingPreview-title">Tendencies</h2>
+      <button class="trendingPreview-btn">View more</button>
     </div>
 
     <article class="trendingPreview-movieList">
@@ -53,7 +46,7 @@
   </section>
 
   <section id="categoriesPreview" class="categoriesPreview-container">
-    <h2 class="categoriesPreview-title">Categorías</h2>
+    <h2 class="categoriesPreview-title">Categories</h2>
 
     <article class="categoriesPreview-list">
       <div class="category-container category-container--loading"></div>
@@ -66,7 +59,7 @@
 
   <section id="liked" class="liked-container">
     <div class="liked-header">
-      <h2 class="liked-title">Películas favoritas</h2>
+      <h2 class="liked-title">Favorite movies</h2>
     </div>
 
     <article class="liked-movieList">
@@ -138,7 +131,9 @@
     </article>
   </section>
 
-  <footer>@LilSeniorj • All rights reserved ©2022.</footer>
+  <footer class="footer">
+    @LilSeniorj • All rights reserved ©2022.
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="./src/secrets.js"></script>

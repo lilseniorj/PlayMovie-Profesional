@@ -244,16 +244,6 @@ button {
   border-bottom-right-radius: 8px;
 }
 
-/* Languages */
-
-#langSection select {
-  margin-top: 5px;
-  font-size: 16px;
-  border: none;
-  background-color: var(--purple-light-2);
-  color: var(--red-dark-2);
-}
-
 /* Trending */
 .trendingPreview-header,
 .liked-header {
@@ -264,8 +254,8 @@ button {
 
 .trendingPreview-btn {
   border-radius: 8px;
-  height: 32px;
-  width: 72px;
+  height: 30px;
+  width: 78px;
 }
 
 .trendingPreview-movieList,
@@ -436,17 +426,18 @@ button {
 }
 
 
-/* Footer */
+/* footer  */
+
 footer {
   background-color: var(--purple-medium-3);
   color: var(--purple-light-2);
   text-align: center;
   height: 48px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
 
 /* Navigation */
 .inactive {
